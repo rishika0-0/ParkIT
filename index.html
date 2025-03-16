@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkIT - Car Parking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Splash Page -->
+    <section id="splash" class="page">
+        <h1>Splash</h1>
+        <p>Welcome to ParkIT</p>
+        <button onclick="nextPage()">Next</button>
+    </section>
+
+    <!-- Onboarding Page 1 -->
+    <section id="onboarding1" class="page">
+        <h1>Onboarding</h1>
+        <p>Learn how to use ParkIT</p>
+        <button onclick="nextPage()">Next</button>
+    </section>
+
+    <!-- Onboarding Page 2 -->
+    <section id="onboarding2" class="page">
+        <h1>Onboarding</h1>
+        <p>More about ParkIT features</p>
+        <button onclick="nextPage()">Next</button>
+    </section>
+
+    <!-- Home Page -->
+    <section id="home" class="page">
+        <h1>Home</h1>
+        <p>You can feel the best performance on your drive</p>
+        <button onclick="nextPage()">Skip</button>
+    </section>
+
+    <script>
+        let currentPage = 0;
+        let pages;
+
+        window.onload = function() {
+            pages = document.querySelectorAll('.page');
+            
+            // Ensure only the first page is visible at the start
+            pages.forEach((page, index) => {
+                page.style.display = index === 0 ? 'block' : 'none';
+            });
+        };
+
+        function nextPage() {
+            pages[currentPage].style.display = 'none'; // Hide current page
+            currentPage = (currentPage + 1) % pages.length; // Move to next page
+            pages[currentPage].style.display = 'block'; // Show new page
+        }
+    </script>
+</body>
+</html>
